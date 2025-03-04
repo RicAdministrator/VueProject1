@@ -6,42 +6,42 @@
         <form class="w3-container">
 
             <p>
-                <label class="w3-text-brown"><b>First Name</b></label>
+                <label class="w3-text-brown" for="txtFirstName"><b>First Name</b></label>
                 <input id="txtFirstName" class="w3-input w3-border w3-sand" type="text" v-model="inpFirstName">
-                <label v-bind:class="{ 'w3-text-red': inpFirstName == '', 'w3-text-green': inpFirstName != '' }"
+                <label for="txtFirstName" v-bind:class="{ 'w3-text-red': inpFirstName == '', 'w3-text-green': inpFirstName != '' }"
                     style="font-size: 10px;">required </label>
             </p>
 
             <p>
-                <label class="w3-text-brown"><b>Last Name</b></label>
+                <label for="txtLastName" class="w3-text-brown"><b>Last Name</b></label>
                 <input id="txtLastName" class="w3-input w3-border w3-sand" type="text" v-model="inpLastName">
-                <label v-bind:class="{ 'w3-text-red': inpLastName == '', 'w3-text-green': inpLastName != '' }"
+                <label for="txtLastName" v-bind:class="{ 'w3-text-red': inpLastName == '', 'w3-text-green': inpLastName != '' }"
                     style="font-size: 10px;">required </label>
             </p>
 
             <p>
-                <label class="w3-text-brown"><b>Phone Number</b></label>
+                <label for="txtPhoneNumber" class="w3-text-brown"><b>Phone Number</b></label>
                 <input id="txtPhoneNumber" class="w3-input w3-border w3-sand" type="text" v-model="inpPhoneNumber">
-                <label v-bind:class="{ 'w3-text-red': inpPhoneNumber == '', 'w3-text-green': inpPhoneNumber != '' }" style="font-size: 10px;"> required, </label>
-                <label v-bind:class="{ 'w3-text-red': inpPhoneNumber == '' || (inpPhoneNumber.match(/[^$,.\d]/) && inpPhoneNumber !=''), 'w3-text-green': !inpPhoneNumber.match(/[^$,.\d]/) && inpPhoneNumber !='' }" style="font-size: 10px;"> numeric</label>
+                <label for="txtPhoneNumber" v-bind:class="{ 'w3-text-red': inpPhoneNumber == '', 'w3-text-green': inpPhoneNumber != '' }" style="font-size: 10px;"> required, </label>
+                <label for="txtPhoneNumber" v-bind:class="{ 'w3-text-red': inpPhoneNumber == '' || (inpPhoneNumber.match(/[^$,.\d]/) && inpPhoneNumber !=''), 'w3-text-green': !inpPhoneNumber.match(/[^$,.\d]/) && inpPhoneNumber !='' }" style="font-size: 10px;"> numeric</label>
             </p>
 
             <p>
-                <label class="w3-text-brown"><b>Email</b></label>
+                <label for="txtEmail" class="w3-text-brown"><b>Email</b></label>
                 <input id="txtEmail" class="w3-input w3-border w3-sand" type="text" v-model="inpEmail">
-                <label v-bind:class="{ 'w3-text-red': inpEmail == '', 'w3-text-green': inpEmail != '' }" style="font-size: 10px;"> required, </label>
-                <label v-bind:class="{ 'w3-text-red': inpEmail == '' || (!emailPattern.test(inpEmail) && inpEmail !=''), 'w3-text-green': emailPattern.test(inpEmail) && inpEmail !='' }" style="font-size: 10px;"> valid email</label>
+                <label for="txtEmail" v-bind:class="{ 'w3-text-red': inpEmail == '', 'w3-text-green': inpEmail != '' }" style="font-size: 10px;"> required, </label>
+                <label for="txtEmail" v-bind:class="{ 'w3-text-red': inpEmail == '' || (!emailPattern.test(inpEmail) && inpEmail !=''), 'w3-text-green': emailPattern.test(inpEmail) && inpEmail !='' }" style="font-size: 10px;"> valid email</label>
             </p>
 
             <p>
-                <label class="w3-text-brown"><b>Password</b></label>
+                <label for="txtPassword" class="w3-text-brown"><b>Password</b></label>
                 <input id="txtPassword" class="w3-input w3-border w3-sand" type="text" v-model="inpPassword">
-                <label v-bind:class="{ 'w3-text-red': inpPassword == '', 'w3-text-green': inpPassword != '' }" style="font-size: 10px;"> required, </label>
-                <label v-bind:class="{ 'w3-text-red': inpPassword == '' || (!patternOneLowerCase.test(inpPassword) && inpPassword !=''), 'w3-text-green': patternOneLowerCase.test(inpPassword) && inpPassword !='' }" style="font-size: 10px;"> atleast 1 lowercase letter, </label>
-                <label v-bind:class="{ 'w3-text-red': !hasOneUppercaseChar(inpPassword), 'w3-text-green': hasOneUppercaseChar(inpPassword) }" style="font-size: 10px;"> atleast 1 uppercase letter, </label>
-                <label v-bind:class="{ 'w3-text-red': !hasOneNumericChar(inpPassword), 'w3-text-green': hasOneNumericChar(inpPassword) }" style="font-size: 10px;"> atleast 1 number, </label>
-                <label v-bind:class="{ 'w3-text-red': !hasOneSpecialChar(inpPassword), 'w3-text-green': hasOneSpecialChar(inpPassword) }" style="font-size: 10px;"> atleast 1 special char, </label>
-                <label v-bind:class="{ 'w3-text-red': inpPassword.length < 10 || inpPassword.length > 15, 'w3-text-green': inpPassword.length > 9 && inpPassword.length < 16 }" style="font-size: 10px;"> 10 - 15 character </label>
+                <label for="txtPassword" v-bind:class="{ 'w3-text-red': inpPassword == '', 'w3-text-green': inpPassword != '' }" style="font-size: 10px;"> required, </label>
+                <label for="txtPassword" v-bind:class="{ 'w3-text-red': inpPassword == '' || (!patternOneLowerCase.test(inpPassword) && inpPassword !=''), 'w3-text-green': patternOneLowerCase.test(inpPassword) && inpPassword !='' }" style="font-size: 10px;"> atleast 1 lowercase letter, </label>
+                <label for="txtPassword" v-bind:class="{ 'w3-text-red': !hasOneUppercaseChar(inpPassword), 'w3-text-green': hasOneUppercaseChar(inpPassword) }" style="font-size: 10px;"> atleast 1 uppercase letter, </label>
+                <label for="txtPassword" v-bind:class="{ 'w3-text-red': !hasOneNumericChar(inpPassword), 'w3-text-green': hasOneNumericChar(inpPassword) }" style="font-size: 10px;"> atleast 1 number, </label>
+                <label for="txtPassword" v-bind:class="{ 'w3-text-red': !hasOneSpecialChar(inpPassword), 'w3-text-green': hasOneSpecialChar(inpPassword) }" style="font-size: 10px;"> atleast 1 special char, </label>
+                <label for="txtPassword" v-bind:class="{ 'w3-text-red': inpPassword.length < 10 || inpPassword.length > 15, 'w3-text-green': inpPassword.length > 9 && inpPassword.length < 16 }" style="font-size: 10px;"> 10 - 15 character </label>
             </p>
 
         </form>

@@ -34,7 +34,6 @@ export default {
     },
     methods: {
         receiveEmit(heroId) {
-            alert(heroId)
             let foundHero = this.heroes.find(
                 hero => hero.name === heroId
             );

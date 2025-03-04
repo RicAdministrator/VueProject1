@@ -1,8 +1,8 @@
 <template>
-     Used components, v-show, v-bind, v-on, data property and methods property.
-     <br>
-     Use v-show for scenarios wherein the condition can change a lot.
-     <p/>
+    Used components, v-show, v-bind, v-on, data property and methods property.
+    <br>
+    Use v-show for scenarios wherein the condition can change a lot.
+    <p />
     <input id="rbRegularUser" class="w3-radio" type="radio" :checked="userRoleId === 1"
         v-on:change="ToggleUserRole($event)">
     <label for="rbRegularUser" style="margin-left: 5px;">Regular User</label>
@@ -19,8 +19,8 @@
         </div>
         <div class="w3-container">
             <p>
-                <label class="w3-text-brown"><b>Field 1</b></label>
-                <input class="w3-input w3-border w3-sand" type="text">
+                <label for="txtField1" class="w3-text-brown"><b>Field 1</b></label>
+                <input id="txtField1" class="w3-input w3-border w3-sand" type="text">
             </p>
         </div>
     </div>
@@ -30,8 +30,8 @@
         </div>
         <div class="w3-container">
             <p>
-                <label class="w3-text-brown"><b>Field 2</b></label>
-                <input class="w3-input w3-border w3-sand" type="text">
+                <label for="txtField2" class="w3-text-brown"><b>Field 2</b></label>
+                <input id="txtField2" class="w3-input w3-border w3-sand" type="text">
             </p>
         </div>
     </div>
@@ -41,8 +41,8 @@
         </div>
         <div class="w3-container">
             <p>
-                <label class="w3-text-brown"><b>Field 3</b></label>
-                <input class="w3-input w3-border w3-sand" type="text">
+                <label for="txtField3" class="w3-text-brown"><b>Field 3</b></label>
+                <input id="txtField3" class="w3-input w3-border w3-sand" type="text">
             </p>
         </div>
     </div>

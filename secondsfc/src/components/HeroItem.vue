@@ -35,7 +35,6 @@ export default {
   },
   methods: {
     toggleFavorite() {
-      alert(this.heroName)
       this.$emit('toggle-favorite', this.heroName);
     }
   }

@@ -1,13 +1,11 @@
 <template>
   <div class="w3-bar w3-green">
-    <navigation :app-is-small-screen="false" :app-selected-page="toggleValue" @set-active-page="setActivePage" />
-
+    <navigation :app-is-small-screen="false" :app-selected-page="toggleValue" @set-active-page="setAppActivePage" />
     <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium"
       v-on:click="aaaTest">&#9776;</a>
   </div>
   <div id="demo" class="w3-bar-block w3-green w3-hide w3-hide-large w3-hide-medium">
-    <navigation :app-is-small-screen="true" :app-selected-page="toggleValue" @set-active-page="setActivePage" />
-
+    <navigation :app-is-small-screen="true" :app-selected-page="toggleValue" @set-active-page="setAppActivePage" />
   </div>
   <br>
   <component :is="activeComp"></component>
@@ -36,8 +34,7 @@ export default {
         x.className = x.className.replace(" w3-show", "");
       }
     },
-    setActivePage(selectedPage) {
-      //alert(selectedPage)
+    setAppActivePage(selectedPage) {
       this.toggleValue = selectedPage
     }
   },
