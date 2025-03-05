@@ -1,7 +1,5 @@
 <template>
-    Demo Other Vue Concepts page
-    <br>
-    Explain OtherVueConcepts.vue
+    For each section, demo and explain the code.
     <p />
     <div id="dvOtherVueConcepts">
         <div>
@@ -74,6 +72,39 @@
             <br>
         </div>
 
+        <div>
+            Vue event modifier > v-on:click.right.prevent
+
+            <div style="border: solid 1px black; background-color: lightblue;"
+                v-on:click.right.prevent="showRightClickMsg">Agent: Hello, how can I help you?</div>
+            <div style="border: solid 1px black; margin-top: 5px;background-color: lightblue;"
+                v-on:click.right.prevent="showRightClickMsg">Customer: I would like to know the status up my order. The
+                order id is 1234567890</div>
+        </div>
+
+        <div>
+            Validation using vue watchers
+            <div class="w3-card-4">
+                <div class="w3-container w3-brown">
+                    <h2>Employee Form</h2>
+                </div>
+                <div class="w3-panel w3-pale-red w3-border" v-show="showEmptyFirstNameMessage || showEmptyLastNameMessage">
+                    <h3>Please correct the following input errors:</h3>
+                    <p v-show="showEmptyFirstNameMessage">First Name is required.</p>
+                    <p v-show="showEmptyLastNameMessage">Last Name is required.</p>
+                </div>
+                <form class="w3-container">
+                    <p>
+                        <label class="w3-text-brown" for="txtFirstName"><b>First Name</b></label>
+                        <input id="txtFirstName" class="w3-input w3-border w3-sand" type="text" v-model="inpFirstName">
+                    </p>
+                    <p>
+                        <label for="txtLastName" class="w3-text-brown"><b>Last Name</b></label>
+                        <input id="txtLastName" class="w3-input w3-border w3-sand" type="text" v-model="inpLastName">
+                    </p>
+                </form>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -84,7 +115,11 @@ export default {
             sampleSize: "20px",
             sampleMargin: "5px",
             sampleBackgroundcolor: "yellow",
-            userRoleId: 3
+            userRoleId: 3,
+            inpFirstName: "",
+            inpLastName: "",
+            showEmptyFirstNameMessage: true,
+            showEmptyLastNameMessage: true
         }
     },
     inject: ['appData'],
@@ -101,6 +136,17 @@ export default {
                     this.userRoleId = 3
                     break;
             }
+        },
+        showRightClickMsg() {
+            alert("Notice that the default dropdown did not appear. We can now create our own right click function");
+        }
+    },
+    watch: {
+        inpFirstName(newVal) {
+            this.showEmptyFirstNameMessage = newVal === "";
+        },
+        inpLastName(newVal) {
+            this.showEmptyLastNameMessage = newVal === "";
         }
     }
 }

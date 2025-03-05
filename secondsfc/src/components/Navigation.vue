@@ -1,32 +1,26 @@
 <template>
     <div>
-        <!-- Add vfor here, use data array -->
-        <a class="w3-bar-item w3-button w3-hover-blue"
-            v-bind:class="{ 'w3-hide-small': !appIsSmallScreen, 'w3-blue': appSelectedPage === 'home' }"
-            @click="setActivePage('home')">Home</a>
-        <a class="w3-bar-item w3-button w3-hover-blue"
-            v-bind:class="{ 'w3-hide-small': !appIsSmallScreen, 'w3-blue': appSelectedPage === 'heroes' }"
-            @click="setActivePage('heroes')">Heroes</a>
-        <a class="w3-bar-item w3-button w3-hover-blue"
-            v-bind:class="{ 'w3-hide-small': !appIsSmallScreen, 'w3-blue': appSelectedPage === 'heroes-table' }"
-            @click="setActivePage('heroes-table')">Heroes Table</a>
-        <a class="w3-bar-item w3-button w3-hover-blue"
-            v-bind:class="{ 'w3-hide-small': !appIsSmallScreen, 'w3-blue': appSelectedPage === 'field-validation' }"
-            @click="setActivePage('field-validation')">Field Validation</a>
-        <a class="w3-bar-item w3-button w3-hover-blue"
-            v-bind:class="{ 'w3-hide-small': !appIsSmallScreen, 'w3-blue': appSelectedPage === 'enable-disable-form' }"
-            @click="setActivePage('enable-disable-form')">Enable Disable Form</a>
-        <a class="w3-bar-item w3-button w3-hover-blue"
-            v-bind:class="{ 'w3-hide-small': !appIsSmallScreen, 'w3-blue': appSelectedPage === 'form-based-on-role' }"
-            @click="setActivePage('form-based-on-role')">Form Based On Role</a>
-        <a class="w3-bar-item w3-button w3-hover-blue"
-            v-bind:class="{ 'w3-hide-small': !appIsSmallScreen, 'w3-blue': appSelectedPage === 'other-vue-concepts' }"
-            @click="setActivePage('other-vue-concepts')">Other Vue Concepts</a>
+        <a v-for="x in navPages" class="w3-bar-item w3-button w3-hover-blue"
+            v-bind:class="{ 'w3-hide-small': !appIsSmallScreen, 'w3-blue': appSelectedPage === x.value }"
+            @click="setActivePage(x.value)">{{ x.label }}</a>
     </div>
 </template>
 
 <script>
 export default {
+    data() {
+        return {
+            navPages: [
+                { label: 'Home', value: 'home' },
+                { label: 'Heroes', value: 'heroes' },
+                { label: 'Heroes Table', value: 'heroes-table' },
+                { label: 'Field Validation', value: 'field-validation' },
+                { label: 'Enable Disable Form', value: 'enable-disable-form' },
+                { label: 'Form Based On Role', value: 'form-based-on-role' },
+                { label: 'Other Vue Concepts', value: 'other-vue-concepts' }
+            ]
+        }
+    },
     props: ['appIsSmallScreen', 'appSelectedPage'],
 
     // fix for the following warnings:
