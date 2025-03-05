@@ -1,4 +1,8 @@
 <template>
+    Demo Other Vue Concepts page
+    <br>
+    Explain OtherVueConcepts.vue
+    <p />
     <div id="dvOtherVueConcepts">
         <div>
             JavaScript in Text Interpolation<br>
@@ -22,13 +26,13 @@
             Regular User, Admin User and Super User Links
             <br>
 
-            <input id="rbRegularUser" class="w3-radio" type="radio" :checked="userRoleId === 1"
+            <input id="rbRegularUser" class="w3-radio" type="radio" v-bind:checked="userRoleId === 1"
                 v-on:change="ToggleUserRole($event)">
             <label for="rbRegularUser" style="margin-left: 5px;">Regular User</label>
-            <input id="rbAdminUser" class="w3-radio" type="radio" :checked="userRoleId === 2"
+            <input id="rbAdminUser" class="w3-radio" type="radio" v-bind:checked="userRoleId === 2"
                 v-on:change="ToggleUserRole($event)" style="margin-left: 20px;">
             <label for="rbAdminUser" style="margin-left: 5px;">Admin User</label>
-            <input id="rbSuperUser" class="w3-radio" type="radio" :checked="userRoleId === 3"
+            <input id="rbSuperUser" class="w3-radio" type="radio" v-bind:checked="userRoleId === 3"
                 v-on:change="ToggleUserRole($event)" style="margin-left: 20px;">
             <label for="rbSuperUser" style="margin-left: 5px;">Super User</label>
             <p />
@@ -51,6 +55,24 @@
 
             </div>
         </div>
+        <div>
+            Access app data from App.vue and display in OtherVueConcepts.vue
+            <br>
+            Used Provide/Inject
+            <br>
+            <button class="w3-button w3-red" onclick="document.getElementById('id02').style.display='block'">
+                Display app data
+            </button>
+            <div id="id02" class="w3-panel w3-green w3-display-container" style="display:none">
+                <span onclick="this.parentElement.style.display='none'"
+                    class="w3-button w3-red w3-display-topright">x</span>
+                <p>{{ "User Id : " + appData.userId }}</p>
+                <p>{{ "User Name : " + appData.userName }}</p>
+                <p>{{ "Role Id : " + appData.roleId }}</p>
+                <p>{{ "Role : " + appData.role }}</p>
+            </div>
+            <br>
+        </div>
 
     </div>
 </template>
@@ -65,6 +87,7 @@ export default {
             userRoleId: 3
         }
     },
+    inject: ['appData'],
     methods: {
         ToggleUserRole(e) {
             switch (e.target.id) {

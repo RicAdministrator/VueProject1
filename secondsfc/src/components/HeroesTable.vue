@@ -1,5 +1,9 @@
 <template>
-    Used components, v-for, text interpolation, v-bind:src, v-bind:href, data property.
+    <!-- Used components, v-for, text interpolation, v-bind:src, v-bind:href, data property. -->
+    Demo Heroes Table page
+    <br>
+    Explain HeroesTable.vue
+    <p/>
     <table>
         <tbody>
             <tr>

@@ -1,6 +1,12 @@
 <template>
-    Used components, v-for components, props, props type, requried props, emit, v-bind:src, v-on:click, text interpolation, data property and methods property.
-    <p/>
+    <!-- Used components, v-for components, props, props type, requried props, emit, v-bind:src, v-on:click, text
+    interpolation, data property and methods property. -->
+    Demo Heroes page
+    <br>
+    Explain HeroItem.vue
+    <br>
+    Explain Heroes.vue
+    <p />
     <label class="w3-text-black"><b>Select your favorite hero:</b></label>
     <div id="wrapper">
         <!-- If you don't supply hero-name, hero-desc, hero-picture and is-favorite 
@@ -32,6 +38,7 @@ export default {
             ]
         };
     },
+    inject: ['appData'],
     methods: {
         receiveEmit(heroId) {
             let foundHero = this.heroes.find(

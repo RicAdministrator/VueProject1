@@ -1,5 +1,9 @@
 <template>
     <div>
+        <!-- Add vfor here, use data array -->
+        <a class="w3-bar-item w3-button w3-hover-blue"
+            v-bind:class="{ 'w3-hide-small': !appIsSmallScreen, 'w3-blue': appSelectedPage === 'home' }"
+            @click="setActivePage('home')">Home</a>
         <a class="w3-bar-item w3-button w3-hover-blue"
             v-bind:class="{ 'w3-hide-small': !appIsSmallScreen, 'w3-blue': appSelectedPage === 'heroes' }"
             @click="setActivePage('heroes')">Heroes</a>
@@ -30,7 +34,7 @@ export default {
     // inherited because component renders fragment or text root nodes. If the listener is intended to be a component 
     // custom event listener only, declare it using the "emits" option.
     // 2) Component emitted event "x" but it is neither declared in the emits option nor as an "y" prop.
-    emits: ["set-active-page"],
+    emits: ["set-active-page"], // emits documentation
 
     methods: {
         setActivePage(selectedPage) {

@@ -1,18 +1,23 @@
 <template>
-    Used components, v-show, v-bind, v-on, data property and methods property.
+    <!-- Used components, v-show, v-bind, v-on, data property and methods property.
     <br>
-    Use v-show for scenarios wherein the condition can change a lot.
+    Use v-show for scenarios wherein the condition can change a lot. -->
+    Demo Form Based On Role page
+    <br>
+    Explain FormBasedOnRole.vue
     <p />
-    <input id="rbRegularUser" class="w3-radio" type="radio" :checked="userRoleId === 1"
+    <input id="rbRegularUser" class="w3-radio" type="radio" v-bind:checked="userRoleId === 1"
         v-on:change="ToggleUserRole($event)">
-    <label for="rbRegularUser" style="margin-left: 5px;">Regular User</label>
-    <input id="rbAdminUser" class="w3-radio" type="radio" :checked="userRoleId === 2"
-        v-on:change="ToggleUserRole($event)" style="margin-left: 20px;">
-    <label for="rbAdminUser" style="margin-left: 5px;">Admin User</label>
-    <input id="rbSuperUser" class="w3-radio" type="radio" :checked="userRoleId === 3"
-        v-on:change="ToggleUserRole($event)" style="margin-left: 20px;">
-    <label for="rbSuperUser" style="margin-left: 5px;">Super User</label>
+    <label id="lblRegularUser" for="rbRegularUser">Regular User</label>
+    <input id="rbAdminUser" class="w3-radio" type="radio" v-bind:checked="userRoleId === 2"
+        v-on:change="ToggleUserRole($event)">
+    <label id="lblAdminUser" for="rbAdminUser">Admin User</label>
+    <input id="rbSuperUser" class="w3-radio" type="radio" v-bind:checked="userRoleId === 3"
+        v-on:change="ToggleUserRole($event)">
+    <label id="lblSuperUser" for="rbSuperUser">Super User</label>
     <p />
+
+    <!-- Visible for all roles -->
     <div class="w3-card-4">
         <div class="w3-container w3-brown">
             <h2>Form that should be filled by Regular, Admin and Super users</h2>
@@ -24,6 +29,8 @@
             </p>
         </div>
     </div>
+
+    <!-- Visible for Admin and Super User -->
     <div class="w3-card-4" style="margin-top: 20px;" v-show="userRoleId > 1">
         <div class="w3-container w3-brown">
             <h2>Form that should be filled by Admin and Super users</h2>
@@ -35,6 +42,8 @@
             </p>
         </div>
     </div>
+
+    <!-- Visible for Super User -->
     <div class="w3-card-4" style="margin-top: 20px;" v-show="userRoleId === 3">
         <div class="w3-container w3-brown">
             <h2>Form that should be filled by Super users</h2>
@@ -72,3 +81,25 @@ export default {
     }
 }
 </script>
+
+<style>
+#lblRegularUser {
+    margin-left: 5px;
+}
+
+#rbAdminUser {
+    margin-left: 20px;
+}
+
+#lblAdminUser {
+    margin-left: 5px;
+}
+
+#rbSuperUser {
+    margin-left: 20px;
+}
+
+#lblSuperUser {
+    margin-left: 5px;
+}
+</style>

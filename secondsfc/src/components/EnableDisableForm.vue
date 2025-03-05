@@ -1,4 +1,8 @@
 <template>
+    Demo Enable Disable Form page
+    <br>
+    Explain EnableDisableForm.vue
+    <p/>
     <div class="w3-card-4">
         <div class="w3-container w3-brown">
             <h2>Patient Form</h2>

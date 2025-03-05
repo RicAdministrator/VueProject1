@@ -1,12 +1,12 @@
 <template>
   <div>
-    <img :src="heroPicture" alt="Avatar" style="height:150px;">
+    <img v-bind:src="heroPicture" alt="Avatar" style="height:150px;">
     <img src="/img_quality.svg" v-show="isFavorite" class="imgFavorite">
     <h2>
       {{ heroName }}
     </h2>
     <p>{{ heroDesc }}</p>
-    <button @click="toggleFavorite">Favorite</button>
+    <button v-on:click="toggleFavorite">Favorite</button>
   </div>
 
 </template>

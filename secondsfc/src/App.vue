@@ -2,7 +2,7 @@
   <div class="w3-bar w3-green">
     <navigation :app-is-small-screen="false" :app-selected-page="toggleValue" @set-active-page="setAppActivePage" />
     <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium"
-      v-on:click="aaaTest">&#9776;</a>
+      v-on:click="burgerClicked">&#9776;</a>
   </div>
   <div id="demo" class="w3-bar-block w3-green w3-hide w3-hide-large w3-hide-medium">
     <navigation :app-is-small-screen="true" :app-selected-page="toggleValue" @set-active-page="setAppActivePage" />
@@ -12,12 +12,11 @@
 </template>
 
 <script>
-import Navigation from './components/Navigation.vue';
-
 export default {
   data() {
     return {
-      toggleValue: "heroes"
+      toggleValue: "home",
+      appData: { userId: 1, userName: 'RicAdmin', roleId: 1, role: "Super User" }
     }
   },
   computed: {
@@ -26,7 +25,7 @@ export default {
     },
   },
   methods: {
-    aaaTest() {
+    burgerClicked() {
       var x = document.getElementById("demo");
       if (x.className.indexOf("w3-show") == -1) {
         x.className += " w3-show";
@@ -38,11 +37,11 @@ export default {
       this.toggleValue = selectedPage
     }
   },
-  // provide() {
-  //   return {
-  //     toggleValue: this.toggleValue
-  //   }
-  // }
+  provide() {
+    return {
+      appData: this.appData
+    }
+  }
 }
 </script>
 

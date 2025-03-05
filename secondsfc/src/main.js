@@ -1,5 +1,6 @@
 import { createApp } from 'vue'
 import App from './App.vue'
+import Home from './components/Home.vue'
 import Navigation from './components/Navigation.vue'
 import Heroes from './components/Heroes.vue'
 import HeroItem from './components/HeroItem.vue'
@@ -11,6 +12,7 @@ import OtherVueConcepts from './components/OtherVueConcepts.vue'
 
 const app = createApp(App)
 app.component('navigation', Navigation)
+app.component('home', Home)
 app.component('heroes', Heroes)
 app.component('hero-item', HeroItem)
 app.component('heroes-table', HeroesTable)
