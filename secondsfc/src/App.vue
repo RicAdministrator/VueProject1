@@ -9,6 +9,9 @@
   </div>
   <br>
   <component :is="activeComp"></component>
+
+  <!-- Uncomment to test local components error -->
+  <!-- <scoped-styling /> -->
 </template>
 
 <script>

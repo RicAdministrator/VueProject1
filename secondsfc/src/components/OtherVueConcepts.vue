@@ -74,7 +74,6 @@
 
         <div>
             Vue event modifier > v-on:click.right.prevent
-
             <div style="border: solid 1px black; background-color: lightblue;"
                 v-on:click.right.prevent="showRightClickMsg">Agent: Hello, how can I help you?</div>
             <div style="border: solid 1px black; margin-top: 5px;background-color: lightblue;"
@@ -88,7 +87,8 @@
                 <div class="w3-container w3-brown">
                     <h2>Employee Form</h2>
                 </div>
-                <div class="w3-panel w3-pale-red w3-border" v-show="showEmptyFirstNameMessage || showEmptyLastNameMessage">
+                <div class="w3-panel w3-pale-red w3-border"
+                    v-show="showEmptyFirstNameMessage || showEmptyLastNameMessage">
                     <h3>Please correct the following input errors:</h3>
                     <p v-show="showEmptyFirstNameMessage">First Name is required.</p>
                     <p v-show="showEmptyLastNameMessage">Last Name is required.</p>
@@ -105,10 +105,74 @@
                 </form>
             </div>
         </div>
+
+        <div>
+            Fallthrough css. Set css from the parent vue.
+            <fallthrough
+                style="background-color: lightgreen; border: solid 2px red; padding: 10px; font-weight: bold;" />
+        </div>
+
+        <div>
+            scoped styling
+            <p />
+            CSS written inside the style tag in any *.vue file works globally.
+            <p />
+            To avoid that the styling in one component affects the styling of elements in other components we use the
+            'scoped'
+            attribute on the style tag
+            <p />
+            <span>Span from parent component</span>
+            <p />
+            <scoped-styling />
+        </div>
+
+        <div>
+            Local components
+            <p />
+            ScopedStyling.vue is a local component
+            <p />
+            It is only accessible from OtherVueConcepts.vue
+            <p />
+            If you try to add the component on other vue files, you will get a
+            <p />
+            Failed to resolve component: scoped-styling error
+            <p />
+            To test the error, you can uncomment the code in App.vue
+        </div>
+
+        <div>
+            HTTP Request
+            <br>
+            Get data from an endpoint and display it on the page
+            <br>
+            <button v-on:click="fetchData">Fetch data</button>
+            <div v-if="httpRequestData" id="dataDiv">
+                <img v-bind:src="httpRequestData.avatar">
+                <br>
+                {{ httpRequestData.first_name + " " + httpRequestData.last_name }}
+                <br>
+                {{ httpRequestData.employment.title }}
+            </div>
+        </div>
+
+        <div>
+            Template Refs
+            <br>
+            Alternative to getElementById()
+            <br>
+            <button v-on:click="refSampleGetValue">Get the 3rd list element</button>
+            <ul>
+                <li v-for="x in liTexts" ref="liEl">{{ x }}</li>
+            </ul>
+            {{ thirdEl }}
+        </div>
+
     </div>
 </template>
 
 <script>
+import ScopedStyling from '../components/ScopedStyling.vue'
+
 export default {
     data() {
         return {
@@ -119,7 +183,10 @@ export default {
             inpFirstName: "",
             inpLastName: "",
             showEmptyFirstNameMessage: true,
-            showEmptyLastNameMessage: true
+            showEmptyLastNameMessage: true,
+            httpRequestData: null,
+            thirdEl: "",
+            liTexts: ['Apple', 'Banana', 'Kiwi', 'Tomato', 'Lichi'],
         }
     },
     inject: ['appData'],
@@ -139,7 +206,14 @@ export default {
         },
         showRightClickMsg() {
             alert("Notice that the default dropdown did not appear. We can now create our own right click function");
-        }
+        },
+        async fetchData() {
+            const response = await fetch("https://random-data-api.com/api/v2/users");
+            this.httpRequestData = await response.json();
+        },
+        refSampleGetValue() {
+            this.thirdEl = this.$refs.liEl[2].innerHTML;
+        },
     },
     watch: {
         inpFirstName(newVal) {
@@ -148,6 +222,9 @@ export default {
         inpLastName(newVal) {
             this.showEmptyLastNameMessage = newVal === "";
         }
+    },
+    components: {
+        'scoped-styling': ScopedStyling
     }
 }
 </script>
