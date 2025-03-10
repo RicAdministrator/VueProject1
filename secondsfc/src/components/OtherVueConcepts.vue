@@ -156,6 +156,14 @@
         </div>
 
         <div>
+            Transition Sample
+            <button @click="this.exists = !this.exists">{{ btnText }}</button><br>
+            <Transition>
+                <p class="test-transition" v-if="exists">Hello World!</p>
+            </Transition>
+        </div>
+
+        <div>
             Template Refs
             <br>
             Alternative to getElementById()
@@ -187,6 +195,7 @@ export default {
             httpRequestData: null,
             thirdEl: "",
             liTexts: ['Apple', 'Banana', 'Kiwi', 'Tomato', 'Lichi'],
+            exists: false
         }
     },
     inject: ['appData'],
@@ -225,6 +234,16 @@ export default {
     },
     components: {
         'scoped-styling': ScopedStyling
+    },
+    computed: {
+        btnText() {
+            if (this.exists) {
+                return 'Remove';
+            }
+            else {
+                return 'Add';
+            }
+        }
     }
 }
 </script>
@@ -234,5 +253,20 @@ export default {
     border: solid 2px black;
     padding: 5px;
     margin-bottom: 5px;
+}
+
+.v-leave-from {
+    opacity: 1;
+}
+
+.v-leave-to {
+    opacity: 0;
+}
+
+.test-transition {
+    background-color: lightgreen;
+    display: inline-block;
+    padding: 10px;
+    transition: opacity 0.5s;
 }
 </style>

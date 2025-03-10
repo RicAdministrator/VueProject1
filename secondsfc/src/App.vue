@@ -15,6 +15,8 @@
 </template>
 
 <script>
+import LifecycleHooks from './components/LifecycleHooks.vue';
+
 export default {
   data() {
     return {
@@ -44,6 +46,9 @@ export default {
     return {
       appData: this.appData
     }
+  },
+  components: {
+    'lifecycle-hooks': LifecycleHooks
   }
 }
 </script>
