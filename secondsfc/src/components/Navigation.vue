@@ -18,7 +18,8 @@ export default {
                 { label: 'Enable Disable Form', value: 'enable-disable-form' },
                 { label: 'Form Based On Role', value: 'form-based-on-role' },
                 { label: 'Other Vue Concepts', value: 'other-vue-concepts' },
-                { label: 'Lifecycle Hooks', value: 'lifecycle-hooks' }
+                { label: 'Lifecycle Hooks', value: 'lifecycle-hooks' },
+                { label: 'Vue Counter', value: 'vue-counter' }
             ]
         }
     },

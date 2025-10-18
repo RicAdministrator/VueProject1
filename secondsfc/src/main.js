@@ -10,6 +10,7 @@ import EnableDisableForm from './components/EnableDisableForm.vue'
 import FormBasedOnRole from './components/FormBasedOnRole.vue'
 import OtherVueConcepts from './components/OtherVueConcepts.vue'
 import Fallthrough from './components/Fallthrough.vue'
+import VueCounter from './components/VueCounter.vue'
 // import ScopedStyling from './components/ScopedStyling.vue'
 
 const app = createApp(App)
@@ -23,5 +24,6 @@ app.component('enable-disable-form', EnableDisableForm)
 app.component('form-based-on-role', FormBasedOnRole)
 app.component('other-vue-concepts', OtherVueConcepts)
 app.component('fallthrough', Fallthrough)
+app.component('vue-counter', VueCounter)
 // app.component('scoped-styling', ScopedStyling)
 app.mount('#app')
